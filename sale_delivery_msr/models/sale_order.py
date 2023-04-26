@@ -29,4 +29,8 @@ class SaleOrder(models.Model):
             new_order_line = self.env['sale.order.line'].new(order_line_vals)
 
 
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> 6d250053c7760b508fbeb294d9e07df76dad65f9
