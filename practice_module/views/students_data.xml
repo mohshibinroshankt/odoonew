@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <record id="view_college_students_form" model="ir.ui.view">
+        <field name="name">college.students.form</field>
+        <field name="model">college.students</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="branch"/>
+                            <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="date_of_birth"/>
+                            <field name="gender"/>
+                        </group>
+                    </group>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_college_students_tree" model="ir.ui.view">
+        <field name="name">college.students.tree</field>
+        <field name="model">college.students</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="branch"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="date_of_birth"/>
+
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_college_students" model="ir.actions.act_window">
+        <field name="name">Exams</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">college.students</field>
+        <field name="view_mode">tree,form</field>
+
+
+    </record>
+
+    <menuitem id="menu_exams"
+              name="Exams"
+              parent="menu_students"
+              action="action_college_students"
+              sequence="50"/>
+
+
+</odoo>
