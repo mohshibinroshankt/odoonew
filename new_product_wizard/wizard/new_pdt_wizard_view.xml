@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="new_product_wizard" model="ir.ui.view">
+        <field name="name">new.product.wizard.form</field>
+        <field name="model">new.product.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Product Wizard">
+                <group>
+                    <field name="product_id"/>
+                    <field name="quantity"/>
+                    <field name="unit_price"/>
+                </group>
+                <footer>
+                    <button string="Add to Order" type="object" name="add_product_to_order" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <!--        <record id="action_new_wizard" model="ir.actions.act_window">-->
+    <!--            <field name="name">New Product</field>-->
+    <!--            <field name="type">ir.actions.act_window</field>-->
+    <!--            <field name="res_model">new.product.wizard</field>-->
+    <!--            <field name="view_id" ref="view_new_pdt_wizard_form"/>-->
+    <!--            <field name="view_mode">form</field>-->
+    <!--            <field name="target">new</field>-->
+
+    <!--        </record>-->
+
+
+</odoo>

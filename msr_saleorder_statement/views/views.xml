@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_sale_order_tree_inherited" model="ir.ui.view">
+            <field name="name">sale.order.tree.inherited</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='amount_total']" position="after">
+                    <field name="paid"/>
+                    <field name="balance"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+
+</odoo>
