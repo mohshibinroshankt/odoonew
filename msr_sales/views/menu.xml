@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_msr_sales"
+              name="MSR sales"
+              sequence="10"/>
+
+    <menuitem id="menu_msr_operations"
+              name="My inventory"
+              parent="menu_msr_sales"
+              sequence="10"/>
+
+    <menuitem id="menu_msr_cancel_orders"
+              name="Cancellations"
+              parent="menu_msr_operations"
+              action="action_cancel_orders"
+              sequence="50"/>
+
+
+</odoo>

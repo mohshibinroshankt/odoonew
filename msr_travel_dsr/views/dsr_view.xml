@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="dsr_view_quotation_tree_with_onboarding" model="ir.ui.view">
+        <field name="name">Dsr.travel.form</field>
+        <field name="model">msr.travel.dsr</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name_of_customer"/>
+                            <field name="contact_number"/>
+                            <field name="reference_by"/>
+                            <field name="cost"/>
+                        </group>
+                        <group>
+                            <field name="profit"/>
+                            <field name="supplier_name"/>
+                            <field name="supplier_cost"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dsr_view_with_tree" model="ir.ui.view">
+        <field name="name">Dsr.travel.tree</field>
+        <field name="model">msr.travel.dsr</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name_of_customer"/>
+                <field name="contact_number"/>
+                <field name="cost"/>
+                <field name="profit"/>
+                <field name="supplier_cost"/>
+                <field name="reference_by"/>
+                <field name="supplier_name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_dsr_view" model="ir.actions.act_window">
+        <field name="name">Travel</field>
+        <field name="res_model">msr.travel.dsr</field>
+        <field name="view_mode">form,tree</field>
+        <field name="view_id" ref="dsr_view_with_tree"/>
+
+
+    </record>
+
+    <menuitem id="menu_msr_travel"
+              parent="sale.sale_menu_root"
+              name="Dsr"
+              action="action_dsr_view"
+              sequence="15">
+
+    </menuitem>
+
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+msr_sales.access_myown_sales,access_myown_sales,msr_sales.model_myown_sales,base.group_user,1,1,1,1
+msr_sales.access_myown_orders,access_myown_orders,msr_sales.model_myown_orders,base.group_user,1,1,1,1
+msr_sales.access_cancel.orders.wizard,access_cancel_orders_wizard,msr_sales.model_cancel_orders_wizard,base.group_user,1,1,1,1

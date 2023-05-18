@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sale_order_template_id']" position="after">
+                    <field name="vat_number" placeholder="Enter vat number"/>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="delivery_charges" placeholder="Enter delivery charges"/>
+                </xpath>
+<!--                <xpath expr="//field[@name='order_line']//tree//field[@name='product_template_id']" position="before">-->
+
+
+<!--                    <field name="serial_number"/>-->
+
+<!--                </xpath>-->
+
+
+            </field>
+
+        </record>
+
+    </data>
+</odoo>

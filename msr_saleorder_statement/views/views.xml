@@ -8,9 +8,26 @@
             <field name="arch" type="xml">
                 <xpath expr="//tree/field[@name='amount_total']" position="after">
                     <field name="paid"/>
-                    <field name="balance"/>
+                    <field name="balance_pay"/>
                 </xpath>
+
             </field>
+        </record>
+
+
+        <record id="view_sale_order_form_inherit_rp" model="ir.ui.view">
+            <field name="name">sale.order.inherited.rp</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_cancel']" position="after">
+                    <button name="action_open_rp" string="Register Payment" type="object"
+                            class="oe_highlight"/>
+                </xpath>
+
+            </field>
+
         </record>
     </data>
 

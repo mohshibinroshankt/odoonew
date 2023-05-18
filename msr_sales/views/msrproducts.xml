@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <record id="view_msr_sales_form" model="ir.ui.view">
+        <field name="name">myown.sales.form</field>
+        <field name="model">myown.sales</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button id="msr_button_draft" name="msr_action_draft" string="Set to Draft" class="btn-primary"
+                            states="cancel" confirm="Are you sure to move to confirm?"
+                            type="object"/>
+                    <button id="msr_button_confirm" name="msr_action_confirm" string="Confirm" class="btn-primary"
+                            states="draft,cancel" confirm="Are you sure to confirm?"
+                            type="object"/>
+                    <button id="msr_button_done" name="msr_action_done" string="Mark as Done" class="btn-primary"
+                            states="confirmed,cancel" confirm="Are you done?"
+                            type="object"/>
+                    <button id="msr_button_cancel" name="msr_action_cancel" string="Cancel"
+                            states="draft,confirmed,done" confirm="Are you sure to cancel?"
+                            type="object"/>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"
+                           statusbar_visible="draft,done,confirmed,cancel"/>
+
+                </header>
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="cost"/>
+                            <field name="gender"/>
+                            <field name="affordable"/>
+                            <field name="seller_id"/>
+                        </group>
+                        <group>
+                            <field name="bought_date"/>
+                            <field name="notes"/>
+                            <field name="product"/>
+                            <field name="date_till_bought"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Specs" name="Specs">
+
+                        </page>
+                        <page string="Varieties" name="Varieties">
+
+                        </page>
+                    </notebook>
+
+
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" options="{'open_attachments': True}"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_msr_sales_tree" model="ir.ui.view">
+        <field name="name">myown.sales.tree</field>
+        <field name="model">myown.sales</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="product"/>
+                <field name="gender"/>
+                <field name="affordable"/>
+                <field name="cost"/>
+                <field name="seller_id"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="msr_sales_search" model="ir.ui.view">
+        <field name="name">msr.sales.search</field>
+        <field name="model">myown.sales</field>
+        <field name="arch" type="xml">
+            <search string="Product">
+                <field name="name"/>
+                <field name="product"/>
+                <separator/>
+                <filter string="Male" name="male" domain="[('gender', '=', 'male')]"/>
+                <filter string="Female" name="female" domain="[('gender', '=', 'female')]"/>
+                <filter string="Others" name="other" domain="[('gender', '=', 'other')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Gender" name="gender" context="{'group_by':'gender'}"/>
+                    <filter string="Product" name="product name" context="{'group_by':'product'}"/>
+                    <!--                    <filter string="Responsible" name="responsible_id" context="{'group_by':'responsible_id'}"/>-->
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_msr_sales" model="ir.actions.act_window">
+        <field name="name">My Sales</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">myown.sales</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+
+    <menuitem id="menu_msr_orders"
+              name="My Sales"
+              parent="menu_msr_operations"
+              action="action_msr_sales"
+              sequence="10"/>
+
+
+</odoo>

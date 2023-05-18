@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.module.category" id="sale_disc_approval">
+        <field name="name">Approval</field>
+        <field name="description">User access levels for Approval</field>
+
+    </record>
+
+    <record id="approval_user_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="sale_disc_approval"/>
+    </record>
+
+    <record id="approval_user_team" model="res.groups">
+        <field name="name">Sales Team</field>
+        <field name="category_id" ref="sale_disc_approval"/>
+        <field name="implied_ids" eval="[(4, ref('approval_user_user'))]"/>
+
+    </record>
+
+    <record id="approval_user_manager" model="res.groups">
+        <field name="name">Sales Manager</field>
+        <field name="category_id" ref="sale_disc_approval"/>
+        <field name="implied_ids" eval="[(4, ref('approval_user_team'))]"/>
+    </record>
+
+    <record id="approval_user_vendor" model="res.groups">
+        <field name="name">Vendor</field>
+        <field name="category_id" ref="sale_disc_approval"/>
+        <field name="implied_ids" eval="[(4, ref('approval_user_manager'))]"/>
+    </record>
+
+
+
+
+</odoo>
+
+

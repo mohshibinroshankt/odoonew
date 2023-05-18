@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+msr_travel_dsr.access_msr_travel_dsr,access_msr_travel_dsr,msr_travel_dsr.model_msr_travel_dsr,base.group_user,1,1,1,1

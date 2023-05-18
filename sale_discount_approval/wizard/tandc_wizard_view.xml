@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="view_new_wizard_form" model="ir.ui.view">
+            <field name="name">terms.condition.wizard.form</field>
+            <field name="model">terms.condition.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create Terms and Condition">
+                    <group>
+                        <field name="my_field"/>
+                        <field name="sale_order_id"/>
+                    </group>
+                    <footer>
+                        <button name="action_write" type="object" string="write"/>
+                    </footer>
+
+
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_new_wizard" model="ir.actions.act_window">
+            <field name="name">New T &amp; C</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">terms.condition.wizard</field>
+            <field name="view_id" ref="view_new_wizard_form"/>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+
+        </record>
+
+    </data>
+
+</odoo>

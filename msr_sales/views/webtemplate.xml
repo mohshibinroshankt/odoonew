@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="shibsales" name="shibsales">
+        <t t-call="website.layout">
+            <div class="container">
+                Heyy All, It's me here!
+            </div>
+        </t>
+    </template>
+</odoo>

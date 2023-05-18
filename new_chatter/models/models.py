@@ -3,11 +3,23 @@
 # from odoo import models, fields, api
 
 
-# class new_chatter(models.Model):
-#     _name = 'new_chatter.new_chatter'
-#     _description = 'new_chatter.new_chatter'
+from odoo import models, fields, api
 
-#     name = fields.Char()
+
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'
+
+    def action_open_chatter(self):
+        return {
+            'name': "New CHatter",
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'views': [(False, 'form')],
+            'res_model': "new.chatter.wizard",
+            'target': 'new',
+        }
+
+    #     name = fields.Char()
 #     value = fields.Integer()
 #     value2 = fields.Float(compute="_value_pc", store=True)
 #     description = fields.Text()

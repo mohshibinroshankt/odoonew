@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="shibin_db.list">
+      <field name="name">shibin_db list</field>
+      <field name="model">shibin_db.shibin_db</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="shibin_db.action_window">
+      <field name="name">shibin_db window</field>
+      <field name="res_model">shibin_db.shibin_db</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="shibin_db.action_server">
+      <field name="name">shibin_db server</field>
+      <field name="model_id" ref="model_shibin_db_shibin_db"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="shibin_db" id="shibin_db.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="shibin_db.menu_1" parent="shibin_db.menu_root"/>
+    <menuitem name="Menu 2" id="shibin_db.menu_2" parent="shibin_db.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="shibin_db.menu_1_list" parent="shibin_db.menu_1"
+              action="shibin_db.action_window"/>
+    <menuitem name="Server to list" id="shibin_db" parent="shibin_db.menu_2"
+              action="shibin_db.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.inherited</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_cancel']" position="after">
+                    <button name="action_open_tc" string="New T &amp; C" type="object"
+                            class="oe_highlight"/>
+                </xpath>
+
+
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="is_confirmable"/>
+                </xpath>
+
+                <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|',('state', 'not in', ['draft']), ('is_confirmable', '=',
+                        True)]}
+                    </attribute>
+
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="my_custom_field"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="login_id"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom_qty']" position="after">
+                    <field name="custom_field"/>
+
+                </xpath>
+
+
+            </field>
+
+        </record>
+        <record id="view_account_invoice_approval_form" model="ir.ui.view">
+            <field name="name">account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+
+                    <field name="my_custom_field"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="custom_account_move_form">
+            <field name="name">account.move.form.custom</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='quantity']" position="after">
+                    <field name="custom_field"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='debit']" position="after">
+                    <field name="custom_field"/>
+                </xpath>
+
+
+            </field>
+        </record>
+
+        <!--        <record id="action_new_tandc" model="ir.actions.act_window">-->
+        <!--            <field name="name">Custom action</field>-->
+        <!--            <field name="type">ir.actions.act_window</field>-->
+        <!--            <field name="res_model">sale.order</field>-->
+        <!--            <field name="view_id" ref="view_new_tandc_form"/>-->
+        <!--            <field name="view_mode">form</field>-->
+
+        <!--        </record>-->
+    </data>
+</odoo>

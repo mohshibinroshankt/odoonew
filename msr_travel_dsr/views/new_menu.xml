@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+
+        <menuitem id="menu_msr_travel"
+                  name="Dsr"
+                  parent="sale.sale_menu_root"
+                  sequence="15">
+
+        </menuitem>
+
+
+    </data>
+
+</odoo>
