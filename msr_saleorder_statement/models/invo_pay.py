@@ -6,7 +6,13 @@ class AccountPayment(models.Model):
 
     sale_order_id = fields.Many2one('sale.order')
 
-    @api.onchange('amount')
+    @api.onchange('amount', 'sale_order_id')
     def _onchange_amount(self):
         if self.sale_order_id:
-            self.sale_order_id.paid += self.amount
+            self.sale_order_id._compute_paid()
+
+
+    # @api.onchange('amount')
+    # def _onchange_amount(self):
+    #     if self.sale_order_id:
+    #         self.sale_order_id.paid = self.amount
