@@ -29,14 +29,3 @@ class SaleOrder(models.Model):
             'target': 'new'
         }
 
-        # return {
-        #     'name': _('Register Payment'),
-        #     'res_model': 'account.payment.register',
-        #     'view_mode': 'form',
-        #     'context': {
-        #         'active_model': 'sale.order',
-        #         'active_id': self.id,
-        #     },
-        #     'target': 'new',
-        #     'type': 'ir.actions.act_window',
-        # }
