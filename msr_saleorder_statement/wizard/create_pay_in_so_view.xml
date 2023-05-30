@@ -8,14 +8,17 @@
             <field name="arch" type="xml">
                 <form string="Create New Payment">
                     <group>
-                        <field name="journal_id"/>
-                        <field name="payment_method_line_id"/>
-                        <field name="date"/>
+                        <group>
+                            <field name="journal_id"/>
+                            <field name="payment_method_line_id"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="amount"/>
+                            <field name="sale_order_id"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="amount"/>
-                        <field name="sale_order_id"/>
-                    </group>
+
                     <footer>
                         <button name="action_create_pay_so" type="object" string="Create Payment"/>
                     </footer>

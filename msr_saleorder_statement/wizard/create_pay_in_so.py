@@ -30,12 +30,4 @@ class CreatePayInSo(models.TransientModel):
 
         return {'type': 'ir.actions.act_window_close'}
 
-    # @api.depends('sale_order_id')
-    # def _compute_paid(self):
-    #     for wizard in self:
-    #         wizard.paid = wizard.sale_order_id.paid
-    #
-    # @api.depends('amount', 'sale_order_id')
-    # def _compute_balance(self):
-    #     for wizard in self:
-    #         wizard.balance_pay = wizard.sale_order_id.amount_total - wizard.paid
+
