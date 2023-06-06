@@ -6,9 +6,7 @@ class SaleOrder(models.Model):
 
     paid_amount = fields.Monetary(string='Paid', compute='_compute_paid', store=True)
     balance_pay_amount = fields.Monetary(string='Balance', compute='_compute_balance', store=True)
-    so_payment_ids = fields.Many2many('account.payment', string='Payments')
 
-    @api.depends('so_payment_ids.amount')
     def _compute_paid(self):
         for order in self:
             payment_idss = self.env['account.payment'].search(
