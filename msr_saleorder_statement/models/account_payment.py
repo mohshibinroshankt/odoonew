@@ -23,6 +23,6 @@ class AccountPayment(models.Model):
     def action_post(self):
         res = super(AccountPayment, self).action_post()
         if self.sale_order_id:
-            self.sale_order_id.paid = self.amount
+            self.sale_order_id.paid_amount = self.amount
         return res
 

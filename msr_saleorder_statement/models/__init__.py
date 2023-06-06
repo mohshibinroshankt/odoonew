@@ -1,3 +1,3 @@
 from . import models
-from . import invo_pay
+from . import account_payment
 

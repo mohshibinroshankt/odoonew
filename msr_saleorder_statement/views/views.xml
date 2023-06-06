@@ -7,8 +7,8 @@
             <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
             <field name="arch" type="xml">
                 <xpath expr="//tree/field[@name='amount_total']" position="after">
-                    <field name="paid"/>
-                    <field name="balance_pay"/>
+                    <field name="paid_amount"/>
+                    <field name="balance_pay_amount"/>
                 </xpath>
 
             </field>

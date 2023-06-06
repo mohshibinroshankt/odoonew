@@ -26,7 +26,7 @@ class CreatePayInSo(models.TransientModel):
             payment = self.env['account.payment'].create(payment_vals)
             payment.action_post()
 
-            order.paid = self.amount
+            order.paid_amount = self.amount
 
         return {'type': 'ir.actions.act_window_close'}
 
