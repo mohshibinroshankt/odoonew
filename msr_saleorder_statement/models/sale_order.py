@@ -19,6 +19,7 @@ class SaleOrder(models.Model):
         for order in self:
             order.balance_pay_amount = order.amount_total - order.paid_amount
 
+    # for the register payment form
     def action_open_rp(self):
         if self.state == 'sale':
             return {
