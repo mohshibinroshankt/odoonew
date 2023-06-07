@@ -22,6 +22,7 @@ class CreatePayInSo(models.TransientModel):
                 'partner_id': order.partner_id.id,
                 'amount': self.amount,
                 'date': self.date,
+                'sale_order_id': order.id,
             }
             payment = self.env['account.payment'].create(payment_vals)
             payment.action_post()

@@ -20,11 +20,13 @@ class SaleOrder(models.Model):
             order.balance_pay_amount = order.amount_total - order.paid_amount
 
     def action_open_rp(self):
-        return {
-            'name': "Create Payment",
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'views': [(False, 'form')],
-            'res_model': "create.payment.wizard",
-            'target': 'new'
-        }
+        if self.state == 'sale':
+            return {
+                'name': "Create Payment",
+                'type': 'ir.actions.act_window',
+                'view_mode': 'form',
+                'views': [(False, 'form')],
+                'res_model': "create.payment.wizard",
+                'target': 'new'
+            }
+

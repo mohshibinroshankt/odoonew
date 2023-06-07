@@ -7,7 +7,7 @@
     'data': [
         'security/ir.model.access.csv',
         'wizard/create_pay_in_so_view.xml',
-        'views/views.xml',
+        'views/sale_order_view.xml',
         'views/account_payment_view.xml',
 
     ]

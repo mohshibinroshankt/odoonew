@@ -23,7 +23,7 @@
 
                 <xpath expr="//button[@name='action_cancel']" position="after">
                     <button name="action_open_rp" string="Register Payment" type="object"
-                            class="oe_highlight"/>
+                            class="oe_highlight" attrs="{'invisible': [('state', '!=', 'sale')]}"/>
                 </xpath>
 
             </field>
