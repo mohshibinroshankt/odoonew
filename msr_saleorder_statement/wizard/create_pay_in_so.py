@@ -11,6 +11,7 @@ class CreatePayInSo(models.TransientModel):
     amount = fields.Monetary(currency_field='currency_id', store=True, readonly=False)
     sale_order_id = fields.Many2one('sale.order')
 
+    # create payment button in the register payment wizard
     def action_create_pay_so(self):
         active_ids = self._context.get('active_ids', [])
         sale_orders = self.env['sale.order'].browse(active_ids)

@@ -22,12 +22,16 @@ class SaleOrder(models.Model):
     # for the register payment form
     def action_open_rp(self):
         if self.state == 'sale':
+            payment_wizard = self.env['create.payment.wizard'].create({
+                'sale_order_id': self.id,
+            })
             return {
                 'name': "Create Payment",
                 'type': 'ir.actions.act_window',
                 'view_mode': 'form',
                 'views': [(False, 'form')],
                 'res_model': "create.payment.wizard",
-                'target': 'new'
+                'target': 'new',
+                'res_id': payment_wizard.id,
             }
 
